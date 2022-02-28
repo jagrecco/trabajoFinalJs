@@ -1,6 +1,66 @@
+.container {
+  padding: 0rem 0 1rem;
+  background-color: #f1e3d1;
+  text-align: center;
+}
+
 h1 {
   font-size: 3rem;
   text-align: center;
-  color: tomato;
+  color: blue;
+  margin: 1rem 0 1rem 0;
+}
+
+.bienvenida {
+  margin: auto;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.boton {
+  padding: 1rem 3rem;
+}
+
+.contenedor {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (4rem)[8];
+      grid-template-columns: repeat(8, 4rem);
+  -ms-grid-rows: 4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
+      grid-template-rows: 4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
+  width: 32rem;
+  margin: auto;
+}
+
+.item {
+  border: 1.5px solid black;
+}
+
+.ficha__b {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 90%;
+  background-color: white;
+  margin: .4rem .4rem;
+}
+
+.ficha__r {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 90%;
+  background-color: red;
+  margin: .4rem .4rem;
+}
+
+.celda__b {
+  background-color: black;
+}
+
+.celda__b :hover {
+  cursor: pointer;
+}
+
+.celda__w {
+  background-color: white;
 }
 /*# sourceMappingURL=main.css.map */
