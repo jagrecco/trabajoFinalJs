@@ -32,6 +32,18 @@ h1 {
   margin: auto;
 }
 
+.contenedor2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (4rem)[8];
+      grid-template-columns: repeat(8, 4rem);
+  -ms-grid-rows: 4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
+      grid-template-rows: 4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
+  width: 32rem;
+  margin: auto;
+  padding-top: 4rem;
+}
+
 .item {
   border: 1.5px solid black;
 }

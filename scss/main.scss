@@ -29,36 +29,45 @@ h1{
     grid-template-rows:   4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
     width: 32rem;
     margin: auto;
-  }
+}
+
+.contenedor2{
+    display: grid;
+    grid-template-columns: repeat(8, 4rem);
+    grid-template-rows:   4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
+    width: 32rem;
+    margin: auto;
+    padding-top: 4rem;
+}
+
+.item{
+  border: 1.5px solid black;
   
-  .item{
-    border: 1.5px solid black;
-    
-    }
+}
 
-    .ficha__b{
-        height: 3rem;
-        width: 3rem;
-        border-radius: 90%;
-        background-color: white;
-        margin: .4rem .4rem;
-    }
-    
-    .ficha__r{
-        height: 3rem;
-        width: 3rem;
-        border-radius: 90%;
-        background-color:red;
-        margin: .4rem .4rem;
-    }
-
-  .celda__b{
-      background-color: black;
-      :hover{
-          cursor: pointer;
-      }
-  }
-
-  .celda__w{
+.ficha__b{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 90%;
     background-color: white;
+    margin: .4rem .4rem;
+}
+
+.ficha__r{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 90%;
+    background-color:red;
+    margin: .4rem .4rem;
+}
+
+.celda__b{
+    background-color: black;
+    :hover{
+        cursor: pointer;
+    }
+}
+
+.celda__w{
+  background-color: white;
 }
