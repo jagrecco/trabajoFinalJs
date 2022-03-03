@@ -12,97 +12,24 @@
     <title>Damas!</title>
   </head>
   <body>
+    
     <div class="container px-0">
 
       <h1>Damas!</h1>
       
-      <button type="button" class="boton shadow">Jugar</button>
+      <button type="button" class="boton shadow" onclick="IniciaJuego()">Jugar</button>
+      <h4 class="player" id="playerNombre"></h2>
+      <p class="pColor" id="playerColor"></p>
 
     </div>
 
     <div class="container px-0">
-        
-        <section class="contenedor shadow">
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-          <div class="item celda__w"></div>
 
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-          <div class="item celda__w "></div>
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__b"></div></div>
-          <div class="item celda__w"></div>
-
-          <div class="item celda__w"></div>
-          <div class="item celda__b"></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"></div>
-
-          <div class="item celda__b"></div>
-          <div class="item celda__w "></div>
-          <div class="item celda__b"></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"></div>
-          <div class="item celda__w"></div>
-
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-          <div class="item celda__w"></div>
-
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-          <div class="item celda__w"></div>
-          <div class="item celda__b"><div class="ficha__r"></div></div>
-
-        </section>
-
-        <div class="contenedor2" id="tablero">
-        
-        </div>
+          <div class="contenedor2 shadow" id="tablero">
+          
+          </div>
 
     </div>
-
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

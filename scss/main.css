@@ -41,7 +41,6 @@ h1 {
       grid-template-rows: 4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
   width: 32rem;
   margin: auto;
-  padding-top: 4rem;
 }
 
 .item {
@@ -56,6 +55,10 @@ h1 {
   margin: .4rem .4rem;
 }
 
+.ficha__b :hover {
+  cursor: pointer;
+}
+
 .ficha__r {
   height: 3rem;
   width: 3rem;
@@ -64,12 +67,12 @@ h1 {
   margin: .4rem .4rem;
 }
 
-.celda__b {
-  background-color: black;
+.ficha__r :hover {
+  cursor: pointer;
 }
 
-.celda__b :hover {
-  cursor: pointer;
+.celda__b {
+  background-color: black;
 }
 
 .celda__w {

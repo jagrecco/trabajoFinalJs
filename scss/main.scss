@@ -32,12 +32,13 @@ h1{
 }
 
 .contenedor2{
+    
     display: grid;
     grid-template-columns: repeat(8, 4rem);
     grid-template-rows:   4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
     width: 32rem;
     margin: auto;
-    padding-top: 4rem;
+    
 }
 
 .item{
@@ -51,6 +52,9 @@ h1{
     border-radius: 90%;
     background-color: white;
     margin: .4rem .4rem;
+    :hover{
+        cursor: pointer;
+    }
 }
 
 .ficha__r{
@@ -59,13 +63,14 @@ h1{
     border-radius: 90%;
     background-color:red;
     margin: .4rem .4rem;
+    :hover{
+        cursor: pointer;
+    }
 }
 
 .celda__b{
     background-color: black;
-    :hover{
-        cursor: pointer;
-    }
+
 }
 
 .celda__w{
