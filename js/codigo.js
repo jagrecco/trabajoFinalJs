@@ -67,9 +67,25 @@ function IniciaJuego()
 function Jugador()
 {
     nombrePlayer=prompt("Ingrese su nombre");
+    do
+        {
+        colorPlayer=prompt("¿Juega con rojas ó azules? (ingrese r ó a)");
+        }
+    while (colorPlayer !== "r" && colorPlayer !== "a");
     
+    switch (colorPlayer)
+    {
+        case 'r':
+            colorPlayer="red";
+            break;
+        case 'a':
+            colorPlayer="blue";
+    }
+
     jugador_nombre=document.getElementById("playerNombre");
     jugador_nombre.innerHTML="Jugador = " + nombrePlayer;
+    jugador_color=document.getElementById("playerColor");
+    jugador_color.innerHTML="Juega con = " + colorPlayer;
 
 }
 
@@ -143,10 +159,13 @@ function ArmaTablero()
             {
                 if (element.ubicacion>=0 && element.ubicacion<=23)
                 {
-                    dibujo=dibujo + `<div class="item celda__b"><div class="ficha__b" id="${element.ubicacion}" onclick="muestraID()"></div></div>`;
+                    dibujo=dibujo + `<div class="item celda__b"><div class="ficha__b" id="${element.ubicacion}" onclick="muestraID(${element.ubicacion})"></div></div>`;
+                    
+
                 } else if (element.ubicacion>=40 && element.ubicacion<=63)
                 {
-                    dibujo=dibujo + '<div class="item celda__b"><div class="ficha__r"></div></div>';
+                    dibujo=dibujo + `<div class="item celda__b"><div style="background-color:${colorPlayer}" class="ficha__r id="${element.ubicacion}" onclick="muestraID(${element.ubicacion})"></div></div>`;
+
                 } else
                 {
                     dibujo=dibujo + '<div class="item celda__b"></div>';
@@ -157,7 +176,8 @@ function ArmaTablero()
         });
 }
 
-function muestraID()
+function muestraID(numero)
 {
-    
+    ficha__id=document.getElementById(numero);
+    alert(numero);
 }

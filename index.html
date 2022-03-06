@@ -13,22 +13,20 @@
   </head>
   <body>
     
-    <div class="container px-0">
-
+    <div class="container px-0 shadow">
       <h1>Damas!</h1>
-      
-      <button type="button" class="boton shadow" onclick="IniciaJuego()">Jugar</button>
-      <h4 class="player" id="playerNombre"></h2>
-      <p class="pColor" id="playerColor"></p>
-
     </div>
+    
+    <div class="container__flex">
+      
+      <div class="contenedor2 shadow" id="tablero">
+      </div>
 
-    <div class="container px-0">
-
-          <div class="contenedor2 shadow" id="tablero">
-          
-          </div>
-
+      <div class="panel">
+        <button type="button" class="boton shadow" onclick="IniciaJuego()">Jugar</button>
+        <h4 class="player" id="playerNombre"></h2>
+        <p class="pColor" id="playerColor"></p>
+      </div>  
     </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

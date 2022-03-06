@@ -1,28 +1,29 @@
 
 .container{
     padding: 0rem 0 1rem;
-    background-color: rgb(241, 227, 209);
-    text-align: center;
+    background-color: rgb(241, 225, 238);
 }
 
 h1{
-    font-size: 3rem;
-    text-align: center;
-    color: blue;
+    font-size: 4rem;
+    color: rgb(19, 19, 54);
     margin: 1rem 0 1rem 0;
+    text-align: center;
 }
 
 .bienvenida{
     margin: auto;
     font-size: 1.5rem;
-    text-align: center;
 }
 
 .boton{
     padding: 1rem 3rem;
-    
+    margin: auto;
 }
 
+.pColor{
+    font-size: 1.5rem;
+}
 .contenedor{
     display: grid;
     grid-template-columns: repeat(8, 4rem);
@@ -31,14 +32,25 @@ h1{
     margin: auto;
 }
 
+
+.container__flex{
+    max-width: 1300px;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+}
 .contenedor2{
     
     display: grid;
     grid-template-columns: repeat(8, 4rem);
     grid-template-rows:   4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
     width: 32rem;
-    margin: auto;
-    
+}
+
+.panel{
+    text-align: center;
+    padding-top: 2rem;
+    width: 32rem;
 }
 
 .item{
@@ -55,6 +67,7 @@ h1{
     :hover{
         cursor: pointer;
     }
+
 }
 
 .ficha__r{
@@ -70,9 +83,8 @@ h1{
 
 .celda__b{
     background-color: black;
-
 }
 
 .celda__w{
-  background-color: white;
+    background-color: white;
 }

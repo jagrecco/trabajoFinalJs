@@ -1,24 +1,27 @@
 .container {
   padding: 0rem 0 1rem;
-  background-color: #f1e3d1;
-  text-align: center;
+  background-color: #f1e1ee;
 }
 
 h1 {
-  font-size: 3rem;
-  text-align: center;
-  color: blue;
+  font-size: 4rem;
+  color: #131336;
   margin: 1rem 0 1rem 0;
+  text-align: center;
 }
 
 .bienvenida {
   margin: auto;
   font-size: 1.5rem;
-  text-align: center;
 }
 
 .boton {
   padding: 1rem 3rem;
+  margin: auto;
+}
+
+.pColor {
+  font-size: 1.5rem;
 }
 
 .contenedor {
@@ -32,6 +35,17 @@ h1 {
   margin: auto;
 }
 
+.container__flex {
+  max-width: 1300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 2rem;
+}
+
 .contenedor2 {
   display: -ms-grid;
   display: grid;
@@ -40,7 +54,12 @@ h1 {
   -ms-grid-rows: 4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
       grid-template-rows: 4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
   width: 32rem;
-  margin: auto;
+}
+
+.panel {
+  text-align: center;
+  padding-top: 2rem;
+  width: 32rem;
 }
 
 .item {
