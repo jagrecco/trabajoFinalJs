@@ -1,4 +1,6 @@
 const tablero=[];
+
+
 const ficherio=[];
 const movimientosCeldas=[];
 let movimientosIndex;
@@ -9,13 +11,16 @@ let colorPlayer=0;
 let fichaHumano="/assets/ficha_negra.png";
 let fichaCompu="/assets/ficha_roja.png";
 let ColorMostrar;
+let PartidaIniciada=false;
 class Celda{
 
-    constructor(ubicacion,color,estado)
+    constructor(ubicacion,color,estado,recuadro,seleccion)
     {
         this.ubicacion=ubicacion;
         this.color=color;
         this.estado=estado;
+        this.recuadro=recuadro;
+        this.seleccion=seleccion;
     }
 }
 class Ficha{
@@ -61,8 +66,9 @@ cargaNombreJugador();
 
 function IniciaJuego()
 {
-    ArmaTablero();
+    ArmaTablero(tablero);
     CargaMovimientos();
     mostrarTablero();
     grabaNombreJugador();
+    
 }

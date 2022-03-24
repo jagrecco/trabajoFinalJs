@@ -27,11 +27,15 @@
         
       </div>
 
-      <div class="panel shadow">
-        <div class="elige__fichas">
-          <p>Jugador: <input type="text" name="nombre" value="Jugador" id="nombreJugador"></p>
-          <img class="ficha__negra" src="/assets/ficha_negra.png" alt="ficha negra" id="eligeNegra">
-          <img class="ficha__roja" src="/assets/ficha_roja.png" alt="ficha roja" id="eligeRoja">
+      <div class="panel shadow" id="panel">
+        <div class="elige__fichas" >
+          <label for="nombreJugador" class="etiqueta_jugador">Jugador</label>
+          <input type="text" name="nombre" value="Jugador" id="nombreJugador">
+          <!-- <p>Jugador: <input type="text" name="nombre" value="Jugador" id="nombreJugador"></p> -->
+          <div class="contenedor_fichas">
+            <img class="ficha__negra" src="/assets/ficha_negra.png" alt="ficha negra" id="eligeNegra">
+            <img class="ficha__roja" src="/assets/ficha_roja.png" alt="ficha roja" id="eligeRoja">
+          </div>
         </div>
         <button type="button" class="boton shadow" id="Iniciar">Jugar</button>
 
@@ -48,5 +52,7 @@
     <script src="./js/funciones.js"></script>
     <script src="./js/datos.js"></script>
     <script src="./js/codigo.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   </body>
 </html>
