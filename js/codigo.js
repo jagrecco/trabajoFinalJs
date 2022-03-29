@@ -1,10 +1,11 @@
 const tablero=[];
-
-
 const ficherio=[];
+const fichasBlancas=[];
+const fichasNegras=[];
+
 const movimientosCeldas=[];
 let movimientosIndex;
-let seleccionado=false;
+let seleccionada=0;
 let colorCasillero=0;
 let nombrePlayer;
 let colorPlayer=0;
@@ -46,6 +47,7 @@ class Ficha{
 }
 
 class Movimientos{
+
     constructor(pos, m1,m2,m3,m4)
     {
         this.pos=pos;
@@ -61,6 +63,9 @@ agregarEventoFichaNegra();
 agregarEventoFichaRoja();
 
 TableroArray();
+llenaFichasBlancas();
+llenaFichasNegras();
+
 FichasArray();
 cargaNombreJugador();
 

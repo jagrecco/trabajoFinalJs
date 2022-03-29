@@ -29,9 +29,14 @@
 
       <div class="panel shadow" id="panel">
         <div class="elige__fichas" >
+
           <label for="nombreJugador" class="etiqueta_jugador">Jugador</label>
-          <input type="text" name="nombre" value="Jugador" id="nombreJugador">
-          <!-- <p>Jugador: <input type="text" name="nombre" value="Jugador" id="nombreJugador"></p> -->
+
+          <div class="jugador_id">
+            <input type="text" name="nombre" value="Jugador" id="nombreJugador" onkeyup="CambiaAvatar()">
+            <div class="avatar" id="avatar"></div>
+          </div>
+          
           <div class="contenedor_fichas">
             <img class="ficha__negra" src="/assets/ficha_negra.png" alt="ficha negra" id="eligeNegra">
             <img class="ficha__roja" src="/assets/ficha_roja.png" alt="ficha roja" id="eligeRoja">

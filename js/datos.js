@@ -53,15 +53,15 @@ function FichasArray()
 
 function CargaMovimientos()
 {
-    mov1=new Movimientos(1,8,10,0,0);
+    mov1=new Movimientos(1,8,10,null,null);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(3,10,12,0,0);
+    mov1=new Movimientos(3,10,12,null,null);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(5,12,14,0,0);
+    mov1=new Movimientos(5,12,14,null,null);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(7,14,0,0,0);
+    mov1=new Movimientos(7,14,null,null,null);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(8,17,1,0,0);
+    mov1=new Movimientos(8,17,1,null,null);
     movimientosCeldas.push(mov1);
     mov1=new Movimientos(10,17,19,1,3);
     movimientosCeldas.push(mov1);
@@ -75,9 +75,9 @@ function CargaMovimientos()
     movimientosCeldas.push(mov1);
     mov1=new Movimientos(21,28,30,12,14);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(23,30,14,0,0);
+    mov1=new Movimientos(23,30,14,null,null);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(24,33,17,0,0);
+    mov1=new Movimientos(24,33,17,null,null);
     movimientosCeldas.push(mov1);
     mov1=new Movimientos(26,33,35,17,19);
     movimientosCeldas.push(mov1);
@@ -91,9 +91,9 @@ function CargaMovimientos()
     movimientosCeldas.push(mov1);
     mov1=new Movimientos(37,44,46,28,30);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(39,46,30,0,0);
+    mov1=new Movimientos(39,46,30,null,null);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(40,33,47,0,0);
+    mov1=new Movimientos(40,33,49,null,null);
     movimientosCeldas.push(mov1);
     mov1=new Movimientos(42,33,35,49,51);
     movimientosCeldas.push(mov1);
@@ -107,15 +107,15 @@ function CargaMovimientos()
     movimientosCeldas.push(mov1);
     mov1=new Movimientos(53,44,46,60,62);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(55,46,62,0,0);
+    mov1=new Movimientos(55,46,62,null,null);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(56,49,0,0,0);
+    mov1=new Movimientos(56,49,null,null,null);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(58,49,51,0,0);
+    mov1=new Movimientos(58,49,51,null,null);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(60,51,53,0,0);
+    mov1=new Movimientos(60,51,53,null,null);
     movimientosCeldas.push(mov1);
-    mov1=new Movimientos(62,53,55,0,0);
+    mov1=new Movimientos(62,53,55,null,null);
     movimientosCeldas.push(mov1);
     
 }

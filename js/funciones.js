@@ -23,17 +23,16 @@ function TableroArray(){
 }
 
 function ArmaTablero(Array_Tablero)
-
 {
     let tableroHtml=document.getElementById("tablero__dibujo");
     tableroHtml.innerHTML="";
 
     Array_Tablero.forEach(element=>
-        {
+    {
             let ubicacionCelda=`${element.ubicacion}`;
             const nuevaCelda = document.createElement('div');
             nuevaCelda.setAttribute("id", ubicacionCelda);
-            
+
             if (element.color==0)
             {
                 nuevaCelda.classList.add("celda__w");
@@ -42,59 +41,37 @@ function ArmaTablero(Array_Tablero)
                 
             } else
             {
-                if (element.ubicacion>=0 && element.ubicacion<=23)
-                {
+                nuevaCelda.classList.add("celda__b");
+                tableroHtml.appendChild(nuevaCelda);
+                tableroHtml.appendChild(nuevaCelda);
 
-                    nuevaCelda.classList.add("celda__b");
-
-                    const NuevaFicha=document.createElement('img');
-                    
-                    NuevaFicha.setAttribute("src",fichaCompu);
-                    NuevaFicha.classList.add("ficha");
-                    NuevaFicha.setAttribute("id", "F" + ubicacionCelda);
-
-                    NuevaFicha.addEventListener("click",()=>
-                    {
-                        muestraFichaPos(NuevaFicha);
-                    });
-
-                    nuevaCelda.appendChild(NuevaFicha);
-                    tableroHtml.appendChild(nuevaCelda);
-
-                } else if (element.ubicacion>=40 && element.ubicacion<=63)
-                {
-                    nuevaCelda.classList.add("celda__b");
-                    const NuevaFicha=document.createElement('img');
-                    NuevaFicha.setAttribute("src",fichaHumano);
-                    NuevaFicha.classList.add("ficha");
-                    NuevaFicha.setAttribute("id", "F" + ubicacionCelda);
-
-                    NuevaFicha.addEventListener("click",()=>
-                    {
-                        muestraFichaPos(NuevaFicha);
-                    });
-                    
-                    nuevaCelda.appendChild(NuevaFicha);
-                    tableroHtml.appendChild(nuevaCelda);
-
-                } else
-                {
-                    nuevaCelda.classList.add("celda__b");
-                    nuevaCelda.textContent=ubicacionCelda;
-
-                    nuevaCelda.addEventListener("click",()=>
-                    {
-                        muestraFichaPos(nuevaCelda);
-                    });
-
-                    tableroHtml.appendChild(nuevaCelda);
-                }
             }
 
-        });
+    });
 }
 
-function agregarEnventoBoton(){
+function DibujaTablero(array_fichas, cualFicha)  //pone las fichas en el tablero
+{
+
+    array_fichas.forEach(element =>{
+        
+        let Casillero_Con_Ficha=document.getElementById(element.posicion);
+        Casillero_Con_Ficha.innerHTML="";
+        
+        const NuevaFicha=document.createElement('img');
+                    
+        NuevaFicha.setAttribute("src",cualFicha);
+        NuevaFicha.classList.add("ficha");
+        NuevaFicha.setAttribute("id", element.id);
+
+        Casillero_Con_Ficha.appendChild(NuevaFicha);
+
+    })
+}
+
+
+function agregarEnventoBoton() // Agrega evento al botón jugar
+{
 
     const btn=document.getElementById("Iniciar");
 
@@ -107,12 +84,18 @@ function agregarEnventoBoton(){
 
 function Jugar()
 {
+    
     IniciaJuego();
     creaBotonGrabar();
     creaBotonRecuperar();
 
-    cambiaEstadoBotonIniciar()
+    cambiaEstadoBotonIniciar();
     PartidaIniciada=true;
+
+    DibujaTablero(fichasNegras,fichaHumano);
+    DibujaTablero(fichasBlancas,fichaCompu);
+
+    agragaEventoFichas (fichasNegras);
 }
 
 function DetenerJuego()
@@ -313,4 +296,196 @@ function RecuperarPartida()
           })
     }
 
+}
+
+function llenaFichasBlancas()
+{
+    let ficha_ubicacion=1;
+    let id_ficha=1;
+
+    for (i=0; i<12; i++)
+    {
+        ficha_nueva=new Ficha("F"+id_ficha,0,ficha_ubicacion,1,0) //ficha(id, color, ubicacion, viva, dama)
+
+        fichasBlancas.push(ficha_nueva);
+
+        const Casillero_lleno=tablero.find(element => element.ubicacion==ficha_ubicacion);
+        Casillero_lleno.estado=1;
+
+        ficha_ubicacion = ficha_ubicacion+2;
+
+        ficha_ubicacion===9 && ficha_ubicacion--;
+
+        ficha_ubicacion===16 && ficha_ubicacion++;
+
+        id_ficha++;
+
+    }
+}
+
+function llenaFichasNegras()
+{
+    let ficha_ubicacion=40;
+    let id_ficha=13;
+
+    for (i=0; i<12; i++)
+    {
+        ficha_nueva=new Ficha("F"+id_ficha,1,ficha_ubicacion,1,0) //ficha(id, color, ubicacion, viva, dama)
+
+        fichasNegras.push(ficha_nueva);
+
+        const Casillero_lleno=tablero.find(element => element.ubicacion==ficha_ubicacion);
+        Casillero_lleno.estado=1;
+        
+        ficha_ubicacion = ficha_ubicacion+2;
+
+        ficha_ubicacion===48 && ficha_ubicacion++;
+
+        ficha_ubicacion===57 && ficha_ubicacion--;
+
+        id_ficha++;
+
+
+    }
+}
+
+function agragaEventoFichas (array_fichas)
+{
+    array_fichas.forEach(element =>
+    {
+        let Ficha_seleccionada=document.getElementById(element.id);
+        
+        Ficha_seleccionada.addEventListener("mouseover",()=>
+        {
+            Ficha_seleccionada.setAttribute("style","cursor: pointer ");
+            seleccionada==Ficha_seleccionada.id && Ficha_seleccionada.setAttribute("style","border: 3px solid yellow; border-radius: 50%; cursor: pointer ");
+        });
+
+        Ficha_seleccionada.addEventListener("mouseout",()=>
+        {
+            /* Ficha_turno.setAttribute("style","height: 3rem; width:3rem;"); */
+        });
+
+        Ficha_seleccionada.addEventListener("click",()=>
+                    {
+                        if (seleccionada!==Ficha_seleccionada.id) // SI SELECCIONA OTRA FICHA HABIENDO UNA SELECCIONADA
+                        {
+                            const fichaAnterior=document.getElementById(seleccionada);
+                            fichaAnterior.setAttribute("style","border: 0px solid yellow; cursor: pointer ");
+                        }
+
+                        seleccionada=Ficha_seleccionada.id;  // guarda el id de la ficha seleccionada
+
+                        Ficha_seleccionada.setAttribute("style","border: 3px solid yellow; border-radius: 50%; cursor: pointer ");
+
+                        MovimientosPosibles(element.posicion);
+                    });
+    });
+}
+
+function MovimientosPosibles(posicionFicha)
+{
+    movimientosCeldas.find(element =>
+    {
+        
+        if (element.pos==posicionFicha)
+        {
+            limpiaRecuadros();
+
+            const array_posibles=tablero.filter(CeldasPosibles => ((CeldasPosibles.ubicacion==element.m1 && CeldasPosibles.estado==0 && CeldasPosibles.ubicacion<posicionFicha )|| (CeldasPosibles.ubicacion==element.m2 && CeldasPosibles.estado==0 && CeldasPosibles.ubicacion<posicionFicha) || (CeldasPosibles.ubicacion==element.m3 && CeldasPosibles.estado==0 && CeldasPosibles.ubicacion<posicionFicha)|| (CeldasPosibles.ubicacion==element.m4 && CeldasPosibles.estado==0 && CeldasPosibles.ubicacion<posicionFicha) ));
+
+            array_posibles.forEach(element => {
+
+                const casilla_donde_mover=document.getElementById(element.ubicacion);
+
+                casilla_donde_mover.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
+
+                casilla_donde_mover.setAttribute("onclick", `mueveFicha(${element.ubicacion})`);
+
+            } );
+
+        }
+
+    })
+}
+
+function limpiaRecuadros()
+{
+    
+    const casillas_vacias=tablero.filter(vacias => vacias.estado==0);  //limpia de recuadros a las casillas vacias
+    
+    casillas_vacias.forEach(c_vacias=>{
+        const casilla_donde_mover=document.getElementById(c_vacias.ubicacion);
+        casilla_donde_mover.setAttribute("style", "border: 1.5px solid black;");
+
+        casilla_donde_mover.setAttribute("onclick", "");
+    })
+}
+
+function mueveFicha(destino)
+{
+    const contenedor_ficha_a_eliminar=document.getElementById(seleccionada).parentNode
+    const ficha_a_volar=document.getElementById(seleccionada);
+    contenedor_ficha_a_eliminar.removeChild(ficha_a_volar);
+
+    const casi=document.getElementById(destino);
+    casi.setAttribute("style", "border: 1.5px solid black;");
+
+    casi.setAttribute("onclick", "");
+
+    fichasNegras.find(element => 
+        {
+            if (element.id==seleccionada)
+            {
+                let anterior=element.posicion;
+
+                element.posicion=destino;
+
+
+                tablero.find(casilla_nueva => 
+                    {
+                        if (casilla_nueva.ubicacion==destino)
+                        {
+                            casilla_nueva.estado=1;
+
+
+                        }
+
+                    }) 
+                
+                tablero.find(casilla_anterior =>
+                    {
+                        if (casilla_anterior.ubicacion==anterior)
+                        {
+                            casilla_anterior.estado=0;
+ 
+                        }
+                    })
+
+            }
+        })
+    
+    DibujaTablero(fichasNegras,fichaHumano);
+    
+    agragaEventoFichas (fichasNegras);
+    
+    limpiaRecuadros();
+
+    seleccionada=0;
+}
+
+
+function CambiaAvatar()
+{
+    const avat=document.getElementById("nombreJugador");
+
+    const img_avatar=document.getElementById("avatar");
+    img_avatar.innerHTML="";
+    
+    url="https://api.multiavatar.com/" + JSON.stringify(avat.value);
+
+    fetch(url)
+        .then(res => res.text())
+        
+        .then(svg => img_avatar.innerHTML=svg) //console.log(svg))
 }
