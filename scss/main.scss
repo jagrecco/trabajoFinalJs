@@ -1,7 +1,10 @@
 
 .container{
     padding: 0rem 0 1rem;
-    background-color: rgb(214, 159, 247);
+    margin-top: 1rem;
+    /* background-color: rgb(112, 19, 112); */
+    /* border: 5px solid #5b0663;
+    border-radius: 20px; */
 }
 
 h1{
@@ -12,31 +15,26 @@ h1{
     font-weight: bolder;
 }
 
-#nombreJugador {
-    display: inline;
-    background-color: #f3e4b5;
-    padding-left: .5rem;
-}
 
 .texto-3D {
     
     font-size: 98px;
-    color: #ffc107;
+    color: #ff0707; //#ffc107;
     font-family: Pacifico, cursive;
-    text-shadow: .8px .8px 0 rgb(95, 94, 94), /*0px 0px 0 rgb(245,183,0)*/
-                 1px 1px 0 rgb(236,174,0),
-                 2px 2px 0 rgb(226,164,0),
-                 3px 3px 0 rgb(217,155,0),
-                 4px 4px 0 rgb(207,145,0),
-                 5px 5px 0 rgb(198,136,0),
-                 6px 6px 0 rgb(188,126,0),
-                 7px 7px 0 rgb(179,117,0),
-                 8px 8px 0 rgb(169,107,0),
-                 9px 9px  0 rgb(159,97,0),
-                 10px 10px 9px rgba(0,0,0,0.74),
-                 10px 10px 1px rgba(0,0,0,0.5),
-                 0px 0px 9px rgba(0,0,0,.2);
- }
+    text-shadow: .8px .8px 0 rgb(255, 255, 255), /*0px 0px 0 rgb(245,183,0)*/
+    1px 1px 0 rgb(236,174,0),
+    2px 2px 0 rgb(226,164,0),
+    3px 3px 0 rgb(217,155,0),
+    4px 4px 0 rgb(207,145,0),
+    5px 5px 0 rgb(198,136,0),
+    6px 6px 0 rgb(188,126,0),
+    7px 7px 0 rgb(179,117,0),
+    8px 8px 0 rgb(169,107,0),
+    9px 9px  0 rgb(159,97,0),
+    10px 10px 9px rgba(0,0,0,0.74),
+    10px 10px 1px rgba(0,0,0,0.5),
+    0px 0px 9px rgba(0,0,0,.2);
+}
 
 .bienvenida{
     margin: auto;
@@ -44,27 +42,50 @@ h1{
 }
 
 .jugador_id{
+    padding: 1rem 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px ridge #ff0707;
+    border-radius: 15px;
+    margin: 1rem;
+    box-shadow: 4px 4px 8px 2px rgba(116,44,32,0.7);
+}
+
+.nombreJugador {
+    display: inline;
+    width: 100%;
+    background-color: #f0ebe6; //#d4d1cc
+    border: 1px solid #ff0707;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: .5rem;
+    font-style: italic;
 }
 
 .etiqueta_jugador{
     width: 50%;
     display: block;
-    margin-left: 10px;
     text-align: left;
 }
+
 #nombreJugador{
     margin-left: 10px;
-    width: 50%;
+    width: 100%;
     height: 30px;
     display: block;
-    font-weight: bold;
+    
 }
 
 .avatar{
+    /* margin-right: 20px; */
     width: 90px;
     height: 90px;
+}
+
+.jugador_nombre{
+    /* margin-left: 15px; */
+    width: 300px;
 }
 
 .contenedor_fichas{
@@ -73,29 +94,42 @@ h1{
 }
 
 .boton{
-    padding: 1rem 3rem;
+    padding: .5rem 2rem;
     justify-content: right;
-    border: 3px solid;
-    border-radius: 5px;
-    width: 85%;
+    border: 2px ridge #ff0707;
+    border-radius: 10px;
+    width: 30%;
+    font-weight: bold;
+    margin: 0 .2rem;
 }
 
-.boton_graba{
-    padding: 1rem 3rem;
-    justify-content: right;
-    border: 3px solid;
-    border-radius: 5px;
-    width: 85%;
-    margin-top: 10px;
+.contenedor_texto{
+    
+    padding: 1rem 1rem;
 }
 
-.boton_recuperar{
-    padding: 1rem 3rem;
-    justify-content: right;
-    border: 3px solid;
-    border-radius: 5px;
-    width: 85%;
-    margin-top: 10px;
+.texto{
+    width: 100%;
+    padding: 0 2rem;
+    font-style: italic;
+    text-align: center;
+}
+
+#contenedor_avisos{
+    padding: .5rem 1rem;
+    border: 2px ridge #ff0707;
+    border-radius: 15px;
+    margin: 1rem;
+    box-shadow: 4px 4px 8px 2px rgba(116,44,32,0.7);
+    display: none;
+    
+}
+
+#contenedor_avisos textarea {
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    border: none;
 }
 
 .pColor{
@@ -104,13 +138,13 @@ h1{
 .contenedor{
     display: grid;
     grid-template-columns: repeat(8, 4rem);
-    grid-template-rows:   4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
+    grid-template-rows:  4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
     width: 32rem;
     margin: auto;
 }
 
 .player_container{
-    margin-top: 4rem;
+    margin-top: 2rem;
     padding-left: 3rem;
     text-align: left;
 }
@@ -119,23 +153,29 @@ h1{
     max-width: 1300px;
     display: flex;
     justify-content: center;
-    padding-top: 1rem;
     margin: auto;
 }
+
 .contenedor2{
     border: 4px solid black;
     display: none;
     grid-template-columns: repeat(8, 4rem);
     grid-template-rows:   4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
     width: 32.5rem;
+    box-shadow: 4px 4px 8px 2px rgba(116,44,32,0.7);
 }
 
 .panel{
-    margin-left: 2rem;
+    
     text-align: center;
-    padding-top: 2rem;
-    width: 32rem;
-    border: 2px solid rgb(214, 159, 247);;
+    padding-top: .5rem;
+    width: 40rem;
+    height: 32.5rem;
+    border: 8px ridge #ff0707;
+    border-radius: 15px;
+    box-shadow: 4px 4px 8px 2px rgba(116,44,32,0.7);
+    
+
 }
 
 .elige__fichas{
@@ -171,16 +211,20 @@ h1{
     height: 3rem;
     width: 3rem;
     &__negra{
-        height: 4.5rem;
-        width: 4.5rem;
-        border: 4px solid red;
+        height: 3rem;
+        width: 3rem;
+        /* border: 4px solid red; */
         border-radius: 5px;
     }
     &__roja{
-        height: 2.5rem;
-        width: 2.5rem;
-        
+        height: 3rem;
+        width: 3rem;
     }
+}
+
+#eligeNegra, #eligeRoja{
+    width: 90px;
+    height: 90px;
 }
 
 

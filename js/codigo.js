@@ -3,6 +3,8 @@ const ficherio=[];
 const fichasBlancas=[];
 const fichasNegras=[];
 
+let quien_juega="negras";
+
 const movimientosCeldas=[];
 let movimientosIndex;
 let seleccionada=0;
@@ -66,10 +68,13 @@ TableroArray();
 llenaFichasBlancas();
 llenaFichasNegras();
 
-FichasArray();
+/* FichasArray(); */
 cargaNombreJugador();
 
-function IniciaJuego()
+CambiaAvatar(1);
+CambiaAvatar(2);
+
+/* function IniciaJuego()
 {
     ArmaTablero(tablero);
     CargaMovimientos();
@@ -77,3 +82,4 @@ function IniciaJuego()
     grabaNombreJugador();
     
 }
+ */

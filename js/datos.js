@@ -1,4 +1,4 @@
-function FichasArray()
+/* function FichasArray()  // (id, color, posicion, viva, dama)
 {
     blancas= new Ficha(0,0,1,1,0);
     ficherio.push(blancas);
@@ -50,7 +50,7 @@ function FichasArray()
     rojas= new Ficha(23,1,62,1,0);
     ficherio.push(rojas);
 }
-
+ */
 function CargaMovimientos()
 {
     mov1=new Movimientos(1,8,10,null,null);

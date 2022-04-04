@@ -17,37 +17,51 @@
   </head>
   <body>
     
-    <div class="container px-0 shadow">
+    <div class="container ">
       <div class="animate__animated animate__backInLeft"><h1 class="texto-3D">Damas!!</h1></div>
     </div>
     
-    <div class="container__flex">
+    <div class="container__flex" id="container_general">
       
-      <div class="contenedor2 shadow" id="tablero__dibujo">
+      <div class="contenedor2 " id="tablero__dibujo">
         
       </div>
 
-      <div class="panel shadow" id="panel">
+      <div class="panel " id="panel">
+
         <div class="elige__fichas" >
-
-          <label for="nombreJugador" class="etiqueta_jugador">Jugador</label>
-
-          <div class="jugador_id">
-            <input type="text" name="nombre" value="Jugador" id="nombreJugador" onkeyup="CambiaAvatar()">
-            <div class="avatar" id="avatar"></div>
-          </div>
           
-          <div class="contenedor_fichas">
-            <img class="ficha__negra" src="/assets/ficha_negra.png" alt="ficha negra" id="eligeNegra">
+          <div class="jugador_id ">
+            <div class="avatar" id="avatar1"></div>
+            <div class="jugador_nombre">
+              <label for="nombreJugador1" class="etiqueta_jugador">Jugador</label>
+              <input type="text" name="nombre" value="Jugador1" id="nombreJugador1" class="nombreJugador" onfocusout="CambiaAvatar(1)">
+            </div>
+            
             <img class="ficha__roja" src="/assets/ficha_roja.png" alt="ficha roja" id="eligeRoja">
           </div>
+          
+          <div class="jugador_id ">            
+          <div class="avatar" id="avatar2"></div>
+          <div class="jugador_nombre">
+            <label for="nombreJugador2" class="etiqueta_jugador">Jugador</label>
+            <input type="text" name="nombre" value="Jugador2" id="nombreJugador2" class="nombreJugador" onfocusout="CambiaAvatar(2)">
+          </div>
+          
+          <img class="ficha__negra" src="/assets/ficha_negra.png" alt="ficha negra" id="eligeNegra">
+          </div>
+          
         </div>
-        <button type="button" class="boton shadow" id="Iniciar">Jugar</button>
 
-        <div class="player_container">
-          <h4 class="player" id="playerNombre"></h2>
-          <p class="pColor" id="playerColor"></p>
+        <div class="contenedor_texto" id="content_texto">
+          <p class="texto">Antes de empezar ingrese el nombre de cada jugador para obtener su propio avatar. También puede cambiar el color de su ficha haciendo click sobre ella.</p>
         </div>
+
+        <div class="contenedor_botones" id="botones">
+          <button type="button" class="boton shadow" id="Iniciar">Jugar</button>
+        </div>
+
+        <div id="contenedor_avisos"> <textarea name="" id="aviso" cols="60" rows="3" class="aviso"></textarea></div>
 
       </div>  
     </div>
