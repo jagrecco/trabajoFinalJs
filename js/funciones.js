@@ -293,7 +293,7 @@ function creaBotonGrabar()
         boton_guardar.setAttribute("type", "button");
         boton_guardar.setAttribute("id","btn_grabar");
         boton_guardar.textContent="Grabar Partida";
-        boton_guardar.setAttribute("class","shadow boton"); //boton_graba
+        boton_guardar.setAttribute("class"," boton"); //boton_graba
         boton_guardar.addEventListener("click",()=>
                         {
                             GuardaPartida();
@@ -334,7 +334,7 @@ function creaBotonRecuperar()
         boton_recuperar.setAttribute("type", "button");
         boton_recuperar.setAttribute("id","btn_recuperar");
         boton_recuperar.textContent="Cargar Partida";
-        boton_recuperar.setAttribute("class","shadow boton"); //boton_recuperar
+        boton_recuperar.setAttribute("class"," boton"); //boton_recuperar
         boton_recuperar.addEventListener("click",()=>
                         {
                             RecuperarPartida();
@@ -479,12 +479,11 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
             limpiaRecuadros();
 
             if (fichas_Color == "fichasNegras") {
-                
+                // movimientos posibles
                 const array_posibles=tablero.filter(CeldasPosibles => ((CeldasPosibles.ubicacion==element.m1 && CeldasPosibles.estado==0 && CeldasPosibles.ubicacion<posicionFicha )|| (CeldasPosibles.ubicacion==element.m2 && CeldasPosibles.estado==0 && CeldasPosibles.ubicacion<posicionFicha) || (CeldasPosibles.ubicacion==element.m3 && CeldasPosibles.estado==0 && CeldasPosibles.ubicacion<posicionFicha)|| (CeldasPosibles.ubicacion==element.m4 && CeldasPosibles.estado==0 && CeldasPosibles.ubicacion<posicionFicha) ));
 
+                //movimientos imposibles
                 const array_imposibles1=tablero.filter(CeldasPosibles => ((CeldasPosibles.ubicacion==element.m1 && CeldasPosibles.estado==1 && CeldasPosibles.ubicacion<posicionFicha )|| (CeldasPosibles.ubicacion==element.m2 && CeldasPosibles.estado==1 && CeldasPosibles.ubicacion<posicionFicha) || (CeldasPosibles.ubicacion==element.m3 && CeldasPosibles.estado==1 && CeldasPosibles.ubicacion<posicionFicha)|| (CeldasPosibles.ubicacion==element.m4 && CeldasPosibles.estado==1 && CeldasPosibles.ubicacion<posicionFicha) ));
-
-                console.table(array_imposibles1);
 
                 array_posibles.forEach(element => {
 
@@ -496,11 +495,10 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
     
                 } );
 
-                array_imposibles1.forEach(elemento =>
+                array_imposibles1.forEach(elemento =>  // array con celdas donde no se puede mover fichasNegras
                     {
                         if (elemento.color==1)
                         {
-
                             let come_izq=0;
                             let come_der=0;
 
@@ -509,11 +507,16 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                                 come_izq=posicionFicha-14;
                                 tablero.find(casillero_llegar =>
                                     {
-                                        casillero_llegar==come_izq && console.log(tablero.ubicacion + " " + tablero.estado);
+                                        /* console.log("Veamos si está libre" + casillero_llegar.ubicacion + casillero_llegar.estado); */
+                                        if (casillero_llegar.estado==0 && casillero_llegar.ubicacion==come_izq)
+                                        {
+                                            const casilla_donde_comer=document.getElementById(parseInt(elemento.ubicacion)-7);
+                                            casilla_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
+                                            casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)-14}, fichasNegras,"negras")`);
+                                        }
+                                        
+                                        casillero_llegar.ubicacion==come_izq && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado);
                                     } )
-                                    const casiila_donde_comer=document.getElementById(parseInt(elemento.ubicacion)-7);
-                                    casiila_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
-                                    casiila_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)-14}, fichasNegras,"negras")`);
                             }
 
                             if (posicionFicha-9==elemento.ubicacion) 
@@ -521,11 +524,16 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                                 come_der=posicionFicha-18;
                                 tablero.find(casillero_llegar =>
                                     {
-                                        casillero_llegar==come_der && console.log(tablero.ubicacion + " " + tablero.estado);
+                                        /* console.log("Veamos si está libre"  + casillero_llegar.ubicacion + casillero_llegar.estado); */
+                                        if (casillero_llegar.estado==0 && casillero_llegar.ubicacion==come_der)
+                                        {
+                                            const casilla_donde_comer=document.getElementById(parseInt(elemento.ubicacion)-9);
+                                            casilla_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
+                                            casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)-18}, fichasNegras,"negras")`);
+                                        }
+
+                                        casillero_llegar.ubicacion==come_der && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado);
                                     } )
-                                    const casiila_donde_comer=document.getElementById(parseInt(elemento.ubicacion)-9);
-                                    casiila_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
-                                    casiila_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)-18}, fichasNegras,"negras")`);
                             }
 
                             
