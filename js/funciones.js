@@ -88,10 +88,8 @@ function Jugar()
     DibujaTablero(fichasNegras, fichaHumano);
     DibujaTablero(fichasBlancas, fichaCompu);
 
-    /* agregaEventoFichas (fichasNegras); */
+    quitarEventoAmbasFichas(); // elimina eventos en las fichas para elegir color
 
-    /* agregaEventoFichas (fichasNegras,"fichasNegras"); */
-    /* agregaEventoFichas (fichasBlancas,"fichasBlancas"); */
     turnos("negras");
 
 }
@@ -115,7 +113,16 @@ function turnos(turno)
 function indicaTurno(fichas_indicar) //controla los turnos para jugar
 {
     let aviso="";
-    fichas_indicar==fichasNegras ? aviso="Mueven las negras" : aviso="Mueven las rojas";
+
+    if (fichas_indicar==fichasNegras) 
+    {
+        const jugador=document.getElementById("nombreJugador2")
+        aviso="Mueve " + jugador.value;
+    } else
+    {
+        const jugador=document.getElementById("nombreJugador1")
+        aviso="Mueve " + jugador.value;
+    }
 
     const content_aviso=document.getElementById("contenedor_avisos");
     content_aviso.setAttribute("style","display:block");
@@ -208,6 +215,23 @@ function agregarEventoFichaNegra(){  // elegir negras para jugar antes de comenz
         fichaN.setAttribute("src",fichaHumano); //fichaCompu
 
     })
+}
+
+function quitarEventoAmbasFichas(){
+
+    alert("quitaEventosAmbasFichas");
+
+    const fichaNN=document.getElementById("eligeNegra");
+    
+    fichaNN.removeEventListener("mouseover")
+
+    fichaNN.removeEventListener("mouseover", nada());
+    fichaNN.removeEventListener("click", nada());
+    
+    const fichaRR=document.getElementById("eligeRoja");
+    fichaRR.removeEventListener("mouseover", nada());
+    fichaRR.removeEventListener("click", nada());
+
 }
 
 function agregarEventoFichaRoja(){ // elegir rojas para jugar antes de comenzar a jugar

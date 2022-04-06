@@ -53,6 +53,8 @@ h1 {
   font-weight: bold;
   padding: .5rem;
   font-style: italic;
+  -webkit-box-shadow: 4px 4px 8px 2px rgba(116, 44, 32, 0.7);
+          box-shadow: 4px 4px 8px 2px rgba(116, 44, 32, 0.7);
 }
 
 .etiqueta_jugador {
