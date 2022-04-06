@@ -497,7 +497,10 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
 
                 array_imposibles1.forEach(elemento =>  // array con celdas donde no se puede mover fichasNegras
                     {
-                        if (elemento.color==1)
+                        console.log("existe " + esNegra(elemento.ubicacion));
+                        /* console.log("existe " + elemento.ubicacion); */
+
+                        if (elemento.color==1 && esNegra(elemento.ubicacion))
                         {
                             let come_izq=0;
                             let come_der=0;
@@ -682,4 +685,17 @@ function CambiaAvatar(cual_jugador)
         
         .then(svg => img_avatar.innerHTML=svg)  // asigna un avatar de acuerdo al nombre del jugador
     
+}
+
+function esNegra(ubi_tablero)
+{
+    let existe=true;
+    
+    fichasNegras.find(elem => 
+        {
+            if (elem.posicion==ubi_tablero) {existe = false};
+            console.log("Existe= " + existe);
+        });
+    /* console.log (existe); */
+    return existe;
 }
