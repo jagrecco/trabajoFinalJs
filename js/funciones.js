@@ -88,7 +88,7 @@ function Jugar()
     DibujaTablero(fichasNegras, fichaHumano);
     DibujaTablero(fichasBlancas, fichaCompu);
 
-    quitarEventoAmbasFichas(); // elimina eventos en las fichas para elegir color
+    /* quitarEventoAmbasFichas(); */ // elimina eventos en las fichas para elegir color
 
     turnos("negras");
 
@@ -219,7 +219,6 @@ function agregarEventoFichaNegra(){  // elegir negras para jugar antes de comenz
 
 function quitarEventoAmbasFichas(){
 
-    alert("quitaEventosAmbasFichas");
 
     const fichaNN=document.getElementById("eligeNegra");
     
