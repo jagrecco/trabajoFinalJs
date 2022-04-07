@@ -217,7 +217,7 @@ function agregarEventoFichaNegra(){  // elegir negras para jugar antes de comenz
     })
 }
 
-function quitarEventoAmbasFichas(){
+function quitarEventoAmbasFichas(){ // REVISAR QUE NO FUNCIONA BIEN
 
 
     const fichaNN=document.getElementById("eligeNegra");
@@ -521,7 +521,6 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                 array_imposibles1.forEach(elemento =>  // array con celdas donde no se puede mover fichasNegras
                     {
                         console.log("existe " + esNegra(elemento.ubicacion));
-                        /* console.log("existe " + elemento.ubicacion); */
 
                         if (elemento.color==1 && esNegra(elemento.ubicacion))
                         {
@@ -533,7 +532,7 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                                 come_izq=posicionFicha-14;
                                 tablero.find(casillero_llegar =>
                                     {
-                                        /* console.log("Veamos si está libre" + casillero_llegar.ubicacion + casillero_llegar.estado); */
+                                        
                                         if (casillero_llegar.estado==0 && casillero_llegar.ubicacion==come_izq)
                                         {
                                             const casilla_donde_comer=document.getElementById(parseInt(elemento.ubicacion)-7);
@@ -581,15 +580,52 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
     
                 } );
 
-               /*  array_imposibles2.forEach(elemento =>
+                array_imposibles2.forEach(elemento =>  // array con celdas donde no se puede mover fichasNegras
+                {
+                    console.log("existe " + esBlanca(elemento.ubicacion));
+
+                    if (elemento.color==1 && esBlanca(elemento.ubicacion))
                     {
-                        if (elemento.color==1){
-                            const casiila_donde_comer=document.getElementById(parseInt(elemento.ubicacion)-7);
-                            
-                            casiila_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
-                            casiila_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)-7}, fichasBlancas, "blancas")`);
+                        let come_izq=0;
+                        let come_der=0;
+
+                        if (posicionFicha+7==elemento.ubicacion) 
+                        {
+                            come_izq=posicionFicha+14;
+                            tablero.find(casillero_llegar =>
+                                {
+                                    
+                                    if (casillero_llegar.estado==0 && casillero_llegar.ubicacion==come_izq)
+                                    {
+                                        const casilla_donde_comer=document.getElementById(parseInt(elemento.ubicacion)+7);
+                                        casilla_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
+                                        casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)+14}, fichasNegras,"negras")`);
+                                    }
+                                    
+                                    casillero_llegar.ubicacion==come_izq && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado);
+                                } )
                         }
-                    }) */
+
+                        if (posicionFicha+9==elemento.ubicacion) 
+                        {
+                            come_der=posicionFicha+18;
+                            tablero.find(casillero_llegar =>
+                                {
+                                    
+                                    if (casillero_llegar.estado==0 && casillero_llegar.ubicacion==come_der)
+                                    {
+                                        const casilla_donde_comer=document.getElementById(parseInt(elemento.ubicacion)+9);
+                                        casilla_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
+                                        casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)+18}, fichasNegras,"negras")`);
+                                    }
+
+                                    casillero_llegar.ubicacion==come_der && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado);
+                                } )
+                        }
+
+                        
+                    }
+                })
             }
 
         }
@@ -717,8 +753,21 @@ function esNegra(ubi_tablero)
     fichasNegras.find(elem => 
         {
             if (elem.posicion==ubi_tablero) {existe = false};
-            console.log("Existe= " + existe);
+            /* console.log("Existe= " + existe); */
         });
-    /* console.log (existe); */
+
+    return existe;
+}
+
+function esBlanca(ubi_tablero)
+{
+    let existe=true;
+    
+    fichasBlancas.find(elem => 
+        {
+            if (elem.posicion==ubi_tablero) {existe = false};
+            
+        });
+    
     return existe;
 }
