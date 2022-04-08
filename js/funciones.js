@@ -520,7 +520,6 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
 
                 array_imposibles1.forEach(elemento =>  // array con celdas donde no se puede mover fichasNegras
                     {
-                        console.log("existe " + esNegra(elemento.ubicacion));
 
                         if (elemento.color==1 && esNegra(elemento.ubicacion))
                         {
@@ -530,6 +529,7 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                             if (posicionFicha-7==elemento.ubicacion) 
                             {
                                 come_izq=posicionFicha-14;
+                                
                                 tablero.find(casillero_llegar =>
                                     {
                                         
@@ -537,7 +537,8 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                                         {
                                             const casilla_donde_comer=document.getElementById(parseInt(elemento.ubicacion)-7);
                                             casilla_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
-                                            casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)-14}, fichasNegras,"negras")`);
+                                            /* casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)-14}, fichasNegras,"negras")`); */
+                                            casilla_donde_comer.setAttribute("onclick", `mueveFicha(${come_izq}, fichasNegras,"negras")`);
                                         }
                                         
                                         casillero_llegar.ubicacion==come_izq && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado);
@@ -554,7 +555,8 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                                         {
                                             const casilla_donde_comer=document.getElementById(parseInt(elemento.ubicacion)-9);
                                             casilla_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
-                                            casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)-18}, fichasNegras,"negras")`);
+                                            /* casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)-18}, fichasNegras,"negras")`); */
+                                            casilla_donde_comer.setAttribute("onclick", `mueveFicha(${come_der}, fichasNegras,"negras")`);
                                         }
 
                                         casillero_llegar.ubicacion==come_der && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado);
@@ -622,7 +624,6 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                                     casillero_llegar.ubicacion==come_der && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado);
                                 } )
                         }
-
                         
                     }
                 })
@@ -648,10 +649,11 @@ function limpiaRecuadros() //limpia los recuadros de los movimientos posibles an
 
 function mueveFicha(destino, cual_array, cual)
 {
+    /* console.log("Donde mueve ="+destino + " Array= " + " Cual= " + cual) */
 
     const contenedor_ficha_a_eliminar=document.getElementById(seleccionada).parentNode
     const ficha_a_volar=document.getElementById(seleccionada);
-    contenedor_ficha_a_eliminar.removeChild(ficha_a_volar);  //elimina la ficha
+    contenedor_ficha_a_eliminar.removeChild(ficha_a_volar);  //elimina la ficha que se movió
 
     const casi=document.getElementById(destino);
     casi.setAttribute("style", "border: 1.5px solid black;");
@@ -688,6 +690,7 @@ function mueveFicha(destino, cual_array, cual)
         
     if (cual=="negras")
     {
+        
         DibujaTablero(fichasNegras, fichaHumano);
     
         eliminaEventosFichas(fichasNegras);
