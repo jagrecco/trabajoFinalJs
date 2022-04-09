@@ -1,4 +1,8 @@
 
+body{
+    background: linear-gradient(315deg, #f0f0f0, #cacaca);
+}
+
 .container{
     padding: 0rem 0 1rem;
     margin-top: 1rem;
@@ -42,26 +46,34 @@ h1{
 }
 
 .jugador_id{
-    padding: 1rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid #ff0707;
+    /* border: 0.5px solid #ff0707; */
     border-radius: 15px;
-    margin: 1rem;
-    box-shadow: 2px 2px 4px 1px rgba(116,44,32,0.7);
+    padding: 1rem .5rem;
+    margin: 1rem 1rem;
+    /* box-shadow: 2px 2px 4px 1px rgba(116,44,32,0.7); */
+    border-radius: 50px;
+    background: linear-gradient(315deg, #f0f0f0, #cacaca);
+    box-shadow:  -12px -12px 18px #b1b1b1,
+             12px 12px 18px #ffffff;
 }
 
 .nombreJugador {
     display: inline;
     width: 100%;
     background-color: #f0ebe6;
-    border: 1px solid #ff0707;
+    /* border: 0.5px solid #ff0707; */
     border-radius: 10px;
     font-weight: bold;
     padding: .5rem;
     font-style: italic;
-    box-shadow: 2px 2px 4px 1px rgba(116,44,32,0.7);
+    /* box-shadow: 2px 2px 4px 1px rgba(116,44,32,0.7); */
+    border-radius: 50px;
+    background: linear-gradient(315deg, #f0f0f0, #cacaca);
+    box-shadow:  -12px -12px 18px #b1b1b1,
+             12px 12px 18px #ffffff;
 }
 
 .etiqueta_jugador{
@@ -82,7 +94,11 @@ h1{
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    box-shadow: 2px 2px 4px 1px rgba(116,44,32,0.7);
+    /* box-shadow: 2px 2px 4px 1px rgba(116,44,32,0.7); */
+    /* border-radius: 50px; */
+    background: linear-gradient(315deg, #f0f0f0, #cacaca);
+    box-shadow:  -12px -12px 18px #b1b1b1,
+             12px 12px 18px #ffffff;
 }
 
 .jugador_nombre{
@@ -97,17 +113,28 @@ h1{
 .boton{
     padding: .5rem 2rem;
     justify-content: right;
-    border: 1px solid #ff0707;
-    border-radius: 10px;
+    /* border: 0.5px solid #ff0707; */
+    /* border-radius: 10px; */
     width: 30%;
     font-weight: bold;
     margin: 0 .2rem;
-    box-shadow: 2px 2px 4px 1px rgba(116,44,32,0.7);
+    /* box-shadow: 2px 2px 4px 1px rgba(116,44,32,0.7); */
+    border-radius: 50px;
+    background: linear-gradient(315deg, #f0f0f0, #cacaca);
+    box-shadow:  -12px -12px 18px #b1b1b1,
+             12px 12px 18px #ffffff;
 }
 
 .contenedor_texto{
     
     padding: 1rem 1rem;
+}
+
+.contenedor_botones{
+    padding: 1rem .5rem;
+    margin: 1rem 1rem;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .texto{
@@ -119,11 +146,15 @@ h1{
 
 #contenedor_avisos{
     padding: .5rem 1rem;
-    border: 2px ridge #ff0707;
+    /* border: 0.5px ridge #ff0707; */
     border-radius: 15px;
     margin: 1rem;
-    box-shadow: 4px 4px 8px 2px rgba(116,44,32,0.7);
+    /* box-shadow: 2px 2px 4px 1px rgba(116,44,32,0.7); */
     display: none;
+    border-radius: 50px;
+    background: linear-gradient(315deg, #f0f0f0, #cacaca);
+    box-shadow:  -12px -12px 18px #b1b1b1,
+             12px 12px 18px #ffffff;
     
 }
 
@@ -133,6 +164,7 @@ h1{
     text-align: center;
     border: none;
     color: #ff0707;
+    background: linear-gradient(315deg, #f0f0f0, #cacaca);
 }
 
 .pColor{
@@ -161,29 +193,36 @@ h1{
 }
 
 .contenedor2{
-    border: 4px solid black;
+    /* border: 4px solid black; */
     display: none;
     grid-template-columns: repeat(8, 4rem);
     grid-template-rows:   4rem 4rem  4rem 4rem 4rem 4rem 4rem 4rem;
     width: 32.5rem;
-    box-shadow: 4px 4px 8px 2px rgba(116,44,32,0.7);
+    /* box-shadow: 2px 2px 4px 1px rgba(116,44,32,0.7); */
+    /* border-radius: 50px; */
+    background: linear-gradient(315deg, #f0f0f0, #cacaca);
+    box-shadow:  -12px -12px 18px #b1b1b1,
+             12px 12px 18px #ffffff;
 }
 
 .panel{
     
     text-align: center;
-    padding-top: .5rem;
+    padding-top: 0rem;
     width: 40rem;
     height: 32.5rem;
-    border: 1px ridge #ff0707;
+    /* border: 0.5px ridge #ff0707; */
     border-radius: 15px;
-    box-shadow: 4px 4px 8px 2px rgba(116,44,32,0.7);
-    
+    /* box-shadow: 2px 2px 4px 1px rgba(116,44,32,0.7); */
+    border-radius: 50px;
+    background: linear-gradient(315deg, #f0f0f0, #cacaca);
+    box-shadow:  -12px -12px 18px #b1b1b1,
+             12px 12px 18px #ffffff;
 
 }
 
 .elige__fichas{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .ficha__b{
