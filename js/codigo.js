@@ -4,6 +4,7 @@ const fichasBlancas=[];
 const fichasNegras=[];
 
 let quien_juega="negras";
+let ubicacion_ficha_comida=null;
 
 const movimientosCeldas=[];
 let movimientosIndex;

@@ -112,6 +112,7 @@ function turnos(turno)
 
 function indicaTurno(fichas_indicar) //controla los turnos para jugar
 {
+
     let aviso="";
 
     if (fichas_indicar==fichasNegras) 
@@ -520,7 +521,8 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
 
                 array_imposibles1.forEach(elemento =>  // array con celdas donde no se puede mover fichasNegras
                     {
-
+                        ubicacion_ficha_comida=elemento.ubicacion;
+                        
                         if (elemento.color==1 && esNegra(elemento.ubicacion))
                         {
                             let come_izq=0;
@@ -533,15 +535,14 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                                 tablero.find(casillero_llegar =>
                                     {
                                         
-                                        if (casillero_llegar.estado==0 && casillero_llegar.ubicacion==come_izq)
+                                        if (casillero_llegar.estado==0 && casillero_llegar.color==1 && casillero_llegar.ubicacion==come_izq)
                                         {
                                             const casilla_donde_comer=document.getElementById(parseInt(elemento.ubicacion)-7);
-                                            casilla_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
-                                            /* casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)-14}, fichasNegras,"negras")`); */
-                                            casilla_donde_comer.setAttribute("onclick", `mueveFicha(${come_izq}, fichasNegras,"negras")`);
+                                            casilla_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");                                            
+                                            casilla_donde_comer.setAttribute("onclick", `mueveFicha(${come_izq}, fichasNegras,"negras", ${ubicacion_ficha_comida})`);
                                         }
                                         
-                                        casillero_llegar.ubicacion==come_izq && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado);
+                                        /* casillero_llegar.ubicacion==come_izq && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado + " elemento.ubicacion=" + elemento.ubicacion); */
                                     } )
                             }
 
@@ -550,16 +551,14 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                                 come_der=posicionFicha-18;
                                 tablero.find(casillero_llegar =>
                                     {
-                                        /* console.log("Veamos si está libre"  + casillero_llegar.ubicacion + casillero_llegar.estado); */
-                                        if (casillero_llegar.estado==0 && casillero_llegar.ubicacion==come_der)
+
+                                        if (casillero_llegar.estado==0 && casillero_llegar.color==1 && casillero_llegar.ubicacion==come_der)
                                         {
                                             const casilla_donde_comer=document.getElementById(parseInt(elemento.ubicacion)-9);
                                             casilla_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
-                                            /* casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)-18}, fichasNegras,"negras")`); */
-                                            casilla_donde_comer.setAttribute("onclick", `mueveFicha(${come_der}, fichasNegras,"negras")`);
+                                            casilla_donde_comer.setAttribute("onclick", `mueveFicha(${come_der}, fichasNegras,"negras", ${ubicacion_ficha_comida})`);
                                         }
 
-                                        casillero_llegar.ubicacion==come_der && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado);
                                     } )
                             }
 
@@ -584,7 +583,7 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
 
                 array_imposibles2.forEach(elemento =>  // array con celdas donde no se puede mover fichasNegras
                 {
-                    console.log("existe " + esBlanca(elemento.ubicacion));
+                    ubicacion_ficha_comida=elemento.ubicacion;
 
                     if (elemento.color==1 && esBlanca(elemento.ubicacion))
                     {
@@ -597,14 +596,14 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                             tablero.find(casillero_llegar =>
                                 {
                                     
-                                    if (casillero_llegar.estado==0 && casillero_llegar.ubicacion==come_izq)
+                                    if (casillero_llegar.estado==0 && casillero_llegar.color==1 && casillero_llegar.ubicacion==come_izq)
                                     {
                                         const casilla_donde_comer=document.getElementById(parseInt(elemento.ubicacion)+7);
                                         casilla_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
-                                        casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)+14}, fichasNegras,"negras")`);
+                                        casilla_donde_comer.setAttribute("onclick", `mueveFicha(${come_izq}, fichasBlancas,"blancas", ${ubicacion_ficha_comida})`);
                                     }
                                     
-                                    casillero_llegar.ubicacion==come_izq && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado);
+                                    /* casillero_llegar.ubicacion==come_izq && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado); */
                                 } )
                         }
 
@@ -614,14 +613,14 @@ function MovimientosPosibles(posicionFicha, fichas_Color) // muestra los movimie
                             tablero.find(casillero_llegar =>
                                 {
                                     
-                                    if (casillero_llegar.estado==0 && casillero_llegar.ubicacion==come_der)
+                                    if (casillero_llegar.estado==0 && casillero_llegar.color==1 && casillero_llegar.ubicacion==come_der)
                                     {
                                         const casilla_donde_comer=document.getElementById(parseInt(elemento.ubicacion)+9);
                                         casilla_donde_comer.setAttribute("style", "border: 3px solid yellow; border-radius: 15%; cursor: pointer; cursor: pointer");
-                                        casilla_donde_comer.setAttribute("onclick", `mueveFicha(${parseInt(elemento.ubicacion)+18}, fichasNegras,"negras")`);
+                                        casilla_donde_comer.setAttribute("onclick", `mueveFicha(${come_der}, fichasBlancas,"blancas", ${ubicacion_ficha_comida})`);
                                     }
 
-                                    casillero_llegar.ubicacion==come_der && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado);
+                                    /* casillero_llegar.ubicacion==come_der && console.log(casillero_llegar.ubicacion + " " + casillero_llegar.estado); */
                                 } )
                         }
                         
@@ -647,10 +646,8 @@ function limpiaRecuadros() //limpia los recuadros de los movimientos posibles an
     })
 }
 
-function mueveFicha(destino, cual_array, cual)
+function mueveFicha(destino, cual_array, cual, ficha_comida)
 {
-    /* console.log("Donde mueve ="+destino + " Array= " + " Cual= " + cual) */
-
     const contenedor_ficha_a_eliminar=document.getElementById(seleccionada).parentNode
     const ficha_a_volar=document.getElementById(seleccionada);
     contenedor_ficha_a_eliminar.removeChild(ficha_a_volar);  //elimina la ficha que se movió
@@ -690,7 +687,8 @@ function mueveFicha(destino, cual_array, cual)
         
     if (cual=="negras")
     {
-        
+        ficha_comida !==undefined && eliminaFichaComida(cual, ficha_comida);
+
         DibujaTablero(fichasNegras, fichaHumano);
     
         eliminaEventosFichas(fichasNegras);
@@ -699,6 +697,8 @@ function mueveFicha(destino, cual_array, cual)
     
     } else
     {
+        ficha_comida !==undefined && eliminaFichaComida(cual, ficha_comida);
+
         DibujaTablero(fichasBlancas, fichaCompu);
         
         eliminaEventosFichas(fichasBlancas);
@@ -712,6 +712,67 @@ function mueveFicha(destino, cual_array, cual)
     seleccionada=0;
 
     turnos(quien_juega);
+}
+
+function eliminaFichaComida(cual_juega, ubicacion_ficha_comida)
+{
+    if (cual_juega=="negras")
+    {
+        const indice_a_eliminar=fichasBlancas.findIndex((elemento, indice_a_eliminar) =>
+        {
+            if (elemento.posicion==ubicacion_ficha_comida)
+            {
+                return true;
+            }
+        });
+
+        fichasBlancas.splice(indice_a_eliminar, 1);
+
+        tablero.find(celda_a_limpiar =>
+            {
+                if (celda_a_limpiar.ubicacion==ubicacion_ficha_comida)
+                {
+                    celda_a_limpiar.estado=0;
+                }
+            });
+        
+        ArmaTablero(tablero);
+        DibujaTablero(fichasBlancas, fichaCompu);
+
+        const jugador=document.getElementById("nombreJugador2")
+        aviso= jugador.value +" comió una ficha en la casilla " + ubicacion_ficha_comida + " :)";
+        
+    } else
+    {
+        const indice_a_eliminar=fichasNegras.findIndex((elemento, indice_a_eliminar) =>
+        {
+            if (elemento.posicion==ubicacion_ficha_comida)
+            {
+                return true;
+            }
+        });
+
+        fichasNegras.splice(indice_a_eliminar, 1);
+
+        tablero.find(celda_a_limpiar =>
+            {
+                if (celda_a_limpiar.ubicacion==ubicacion_ficha_comida)
+                {
+                    celda_a_limpiar.estado=0;
+                }
+            });
+        
+        ArmaTablero(tablero);
+        DibujaTablero(fichasNegras, fichaHumano);
+
+        const jugador=document.getElementById("nombreJugador1")
+        aviso= jugador.value +" comió una ficha en la casilla " + ubicacion_ficha_comida + " :)";
+        
+    }
+
+    const aviso_txt=document.getElementById("aviso");
+    aviso_txt.value+=aviso+='\n';
+    aviso_txt.scrollTop=aviso_txt.scrollHeight;
 }
 
 function eliminaEventosFichas(cual_array)
@@ -756,7 +817,6 @@ function esNegra(ubi_tablero)
     fichasNegras.find(elem => 
         {
             if (elem.posicion==ubi_tablero) {existe = false};
-            /* console.log("Existe= " + existe); */
         });
 
     return existe;
@@ -769,7 +829,6 @@ function esBlanca(ubi_tablero)
     fichasBlancas.find(elem => 
         {
             if (elem.posicion==ubi_tablero) {existe = false};
-            
         });
     
     return existe;
