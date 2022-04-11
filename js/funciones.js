@@ -648,6 +648,8 @@ function limpiaRecuadros() //limpia los recuadros de los movimientos posibles an
 
 function mueveFicha(destino, cual_array, cual, ficha_comida)
 {
+    music.play();
+
     const contenedor_ficha_a_eliminar=document.getElementById(seleccionada).parentNode
     const ficha_a_volar=document.getElementById(seleccionada);
     contenedor_ficha_a_eliminar.removeChild(ficha_a_volar);  //elimina la ficha que se movió
@@ -712,6 +714,8 @@ function mueveFicha(destino, cual_array, cual, ficha_comida)
     seleccionada=0;
 
     turnos(quien_juega);
+
+    
 }
 
 function eliminaFichaComida(cual_juega, ubicacion_ficha_comida)

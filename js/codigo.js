@@ -16,6 +16,8 @@ let fichaHumano="/assets/ficha_negra.png";
 let fichaCompu="/assets/ficha_roja.png";
 let ColorMostrar;
 let PartidaIniciada=false;
+
+const music = new Audio('../assets/sonido.mp3');
 class Celda{
 
     constructor(ubicacion,color,estado,recuadro,seleccion)
