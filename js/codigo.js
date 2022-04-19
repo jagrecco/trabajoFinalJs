@@ -17,7 +17,7 @@ let fichaCompu="/assets/ficha_roja.png";
 let ColorMostrar;
 let PartidaIniciada=false;
 
-const music = new Audio('../assets/sonido.mp3');
+const sonido_ficha = new Audio('../assets/sonido.mp3');
 class Celda{
 
     constructor(ubicacion,color,estado,recuadro,seleccion)
@@ -71,18 +71,8 @@ TableroArray();
 llenaFichasBlancas();
 llenaFichasNegras();
 
-/* FichasArray(); */
 cargaNombreJugador();
 
 CambiaAvatar(1);
 CambiaAvatar(2);
 
-/* function IniciaJuego()
-{
-    ArmaTablero(tablero);
-    CargaMovimientos();
-    mostrarTablero();
-    grabaNombreJugador();
-    
-}
- */
