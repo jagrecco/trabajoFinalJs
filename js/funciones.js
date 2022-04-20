@@ -25,7 +25,7 @@ function ArmaTablero(Array_Tablero) //arma el tablero en función del array
             if (element.color==0)
             {
                 nuevaCelda.classList.add("celda__w");
-                nuevaCelda.textContent=ubicacionCelda;
+                /* nuevaCelda.textContent=ubicacionCelda; */
                 tableroHtml.appendChild(nuevaCelda);
                 
             } else
@@ -87,8 +87,6 @@ function Jugar()
 
     DibujaTablero(fichasNegras, fichaHumano);
     DibujaTablero(fichasBlancas, fichaCompu);
-
-    /* quitarEventoAmbasFichas(); */ // elimina eventos en las fichas para elegir color
 
     turnos("negras");
 
@@ -385,7 +383,7 @@ function eliminaEventosFichas(cual_array)
 
 function nada()
 {
-    //usado sólo para eliminar evento de fichas
+    
 }
 
 function CambiaAvatar(cual_jugador)
@@ -432,35 +430,35 @@ function array_vacio(array_de_fichas)
 {
     let fichas_restantes=array_de_fichas.length;
 
-    fichas_restantes=0;
-
-    array_de_fichas==fichasBlancas ? console.log("Blancas restantes = " + fichas_restantes) : console.log("Negras restantes = " + fichas_restantes);
-
     if (fichas_restantes==0)
     {
         let ganador="";
 
         if (array_de_fichas==fichasBlancas)
         {
-            ganador=document.getElementById("nombreJugador2");
+            ganador=document.getElementById("nombreJugador2").value;
 
         } else {
-            ganador=document.getElementById("nombreJugador1");
+            ganador=document.getElementById("nombreJugador1").value;
         }
-        
-
-        alert("GAno " + ganador.value)
 
         Swal.fire({
-            width: '25rem',
-            showConfirmButton: false,
-            timer: 2800,
             title: '¡VICTORIA!',
-            /* text: `Gana ${ganador}`, */
-            icon: 'success',
-            confirmButtonText: 'OK'
-        })
-        
-        DetenerJuego();
+            text: `Gana ${ganador}`,
+            imageUrl: '../assets/giphy.webp',
+            imageWidth: 500,
+            imageHeight: 250,
+            imageAlt: 'Victoria!',
+          })
+
+        reiniciarJuego();
+
     } 
+}
+
+function reiniciarJuego()
+{
+    setTimeout(function(){
+        location.reload();
+    }, 4000);
 }

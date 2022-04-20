@@ -40,15 +40,6 @@ class Ficha{
         this.es_dama = dama;
     }
     
-    mover(posicion)
-    {
-        /* verificar estado de celda de destino */
-        
-    }
-    comer(posicion)
-    {
-        /* mover a celda de destino - eliminar ficha contraria */
-    }
 }
 
 class Movimientos{
